@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=VT323&display=swap" rel="stylesheet" />
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+    <script type="module">
+      import { animate } from 'https://cdn.jsdelivr.net/npm/animejs/+esm';
+    </script>
+    <title>Welcome</title>
+</head>
+
+<body class="bg-zinc-200">
+
+    <!-- Navbar -->
+    <div class="flex items-center px-6 py-4 bg-slate-100 shadow-md fixed w-full top-0 z-10">
+        <!-- Left side: Navigation links -->
+        <div class="flex space-x-6 font-mono">
+            <a class="px-4" href="#home">Home</a>
+            <a class="px-4" href="#about">About</a>
+            <a class="px-4" href="#projects">Projects</a>
+        </div>
+
+        <!-- Spacer pushes icons to right -->
+        <div class="ml-auto flex space-x-8 text-xl px-8">
+            <a href="https://www.linkedin.com" target="_blank" class="text-blue-700 hover:text-blue-900">
+                <i class="fa-brands fa-linkedin"></i>
+            </a>
+
+            <a href="https://github.com" target="_blank" class="text-black-500 hover:text-blue-900">
+                <i class="fa-brands fa-github"></i>
+            </a>
+
+            <a href="mailto:someone@example.com" class="text-blue-800 hover:text-blue-600 flex items-center space-x-2">
+                <i class="fa-regular fa-envelope"></i>
+            </a>
+        </div>
+    </div>
+
+    <!-- Home Section -->
+    <section id="home" class="h-screen bg-gradient-to-r flex flex-col items-center justify-center text-white text-3xl font-semibold">
+        <h1 class="font-mono tracking-wide text-6xl font-bold bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text animate__animated animate__zoomIn animate__slow">
+            Hello, I'm Joanna!
+        </h1>
+        <br>
+        <p class="text-3xl"> 👩🏻‍💻 🤠 🤖 🧶 </p>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="h-screen bg-gray-200 flex flex-col items-center justify-center text-center">
+        <div class="max-w-lg">
+            <h2 class="text-4xl font-bold mb-4">About Me</h2>
+            <p class="text-lg text-gray-700">
+                I'm a <span class = "text-green-700">computer science </span> student in my 3rd year at the <br> <span class="bg-gradient-to-r from-amber-700 via-orange-600 to-amber-400 inline-block text-transparent bg-clip-text ">University of Texas Rio Grande Valley.</span>
+            </p>
+            <p class = "text-base">
+              <br> Some of my interests include machine learning, web development, and robotics!
+                This summer I worked under the <a class = "text-sky-600 underline decoration-sky-600" target = "_blank" href = "https://osusharelab.com/"> OSU Share Lab </a> as an undergraduate researcher. I worked on designing and implementing robotic systems to promote the physical and mental wellbeing of the elder population in Skilled Nursing Facilities (SNF) with <span class = "text-sky-600 font-bold decoration-sky-600">SAMI</span> the robot.
+            </p>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+<section id="projects" class="h-screen bg-white flex items-center justify-center text-center px-6">
+  <div class="max-w-screen-lg w-full">
+    <h2 class="text-4xl font-bold mb-4">My Projects</h2>
+    <p class="text-lg text-gray-700 mb-8">Here are some of the projects I've worked on:</p>
+
+    <!-- Grid container for project cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      
+      <!-- Project card -->
+      
+      <div class="bg-white rounded shadow-xl aspect-square flex flex-col hover:shadow-blue-500/50 hover:shadow-2xl transition-shadow duration-300">
+        <img class="w-full h-1/2 object-cover" src="/img/speechtranslate.png" alt="Sunset in the mountains">
+        <div class="px-6 py-4 flex-grow flex flex-col justify-between">
+          <a target = "_blank" href = "https://isabellawtu09.github.io/transcribe-translate/"><div>
+            <h3 class="font-bold text-2xl mb-2">Speech Scribe</h3>
+            <span class="bg-blue-100 text-blue-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-sm dark:bg-blue-900 dark:text-blue-300">Web development</span>
+            <span class="bg-red-100 text-red-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-sm dark:bg-red-900 dark:text-red-300">Machine Learning</span>
+            <span class="bg-yellow-100 text-yellow-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-sm dark:bg-yellow-900 dark:text-yellow-300">Natural Language Processing</span>
+            <p class="pt-3 text-gray-700 text-base">
+              Record live audio to transcribe and translate. This website was created through 
+              Vite + React using the <span class = "font-bold underline"><a  target = "_blank" class = "text-sky-600 underline decoration-sky-600" href="https://huggingface.co/" >hugging face</a></span> xenova transformers.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Repeat card structure for more projects -->
+      <div class="bg-white rounded shadow-xl aspect-square flex flex-col hover:shadow-blue-500/50 hover:shadow-2xl transition-shadow duration-300">
+        <img class="w-full h-1/2 object-cover" src="/img/hello-space.jpg" alt="Sunset in the mountains">
+        <div class="px-6 py-4 flex-grow flex flex-col justify-between">
+          <div>
+            <h3 class="font-bold text-2xl mb-2">In-Space Welding</h3>
+            <span class="bg-blue-100 text-blue-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-sm dark:bg-blue-900 dark:text-blue-300">SARE</span>
+            <span class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-sm dark:bg-yellow-900 dark:text-yellow-300">Telemetry</span>
+             <span class="bg-pink-100 text-pink-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-sm dark:bg-yellow-900 dark:text-yellow-300">Robotics</span>
+            <p class="text-gray-700 text-base">
+              As part of my role in the SARE telemetry team, I am currently working on developing 
+              the necessary software to control and monitor the welding process in space to close 
+              a technical gap as a NASA Artemis Student Challenge.
+              
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded shadow-xl aspect-square flex flex-col hover:shadow-blue-500/50 hover:shadow-2xl transition-shadow duration-300">
+        <img class="w-full h-1/2 object-cover" src="/img/clap-sami-2.jpg" alt="Sunset in the mountains">
+        <div class="px-6 py-4 flex-grow flex flex-col justify-between">
+          <div>
+            <h3 class="font-bold text-xl mb-2">Robot Hosted Trivia</h3>
+            <span class="bg-purple-100 text-purple-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-sm dark:bg-blue-900 dark:text-blue-300">Research</span>
+            <span class="bg-yellow-100 text-yellow-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-sm dark:bg-yellow-900 dark:text-yellow-300">Human-Robot Interaction</span>
+            <p class="text-gray-700 text-base">
+              During my time at OSU, I ran user studies and tested trivia as a possible cognitive
+              activity for older adults in an SNF setting with an emphasis on motivating factors.
+              Learn more about my time at OSU <a class = "text-sky-600 underline decoration-sky-600" target = "_blank" href = "/Resources/Robot Facilitated Trivia - Final deliverable (3) (1).pdf"> here.</a>
+
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+   
+    
+    <script src="script.js"></script>
+</body>
+
+</html>
