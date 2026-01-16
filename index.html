@@ -137,7 +137,7 @@
       <em>During my time at OSU, I ran user studies and tested trivia as a possible cognitive and social activity for older adults in an SNF setting with an emphasis on motivating factors.</em>
       <img src="./img/ovh-photo.jpg" alt="Trivia Task robot interaction">
       <div class="card-links">
-        <a href="#" class="pdf-trigger" data-pdf="trivia-task"><i class="fa-solid fa-file-pdf"></i> View PDF</a>
+        <a href="./Resources/robot_trivia.pdf" target="_blank"><i class="fa-solid fa-file-pdf"></i> View PDF</a>
       </div>
     </article>
 
@@ -156,7 +156,7 @@
       <em>2025 HackR research hackathon project winner!</em>
       <img src="./img/hackr.png" alt="Burnout Bots project">
       <div class="card-links">
-        <a href="#" class="pdf-trigger" data-pdf="burnout-bots"><i class="fa-solid fa-file-pdf"></i> View PDF</a>
+        <a href="./Resources/hackr2025.pdf" target="_blank"><i class="fa-solid fa-file-pdf"></i> View PDF</a>
       </div>
     </article>
 
@@ -169,7 +169,7 @@
       <div class="card-links">
  
         <a href="#" class="slides-trigger" data-slideshow="AquaMundi-slides"><i class="fa-solid fa-images"></i> View Slides</a>
-        <a href="#" class="pdf-trigger" data-pdf="AquaMundi-cert"><i class="fa-solid fa-file-pdf"></i> View Certificate</a>
+        <a href="./Resources/certificate.pdf" target="_blank"><i class="fa-solid fa-file-pdf"></i> View Certificate</a>
       </div>
     </article>
 
@@ -347,26 +347,6 @@
         if (e.key === 'ArrowRight') showSlide(currentSlide + 1);
       });
 
-      const pdfData = {
-        'burnout-bots': './Resources/hackr2025.pdf',
-        'trivia-task': './Resources/robot_trivia.pdf',
-        'AquaMundi-cert': './Resources/certificate.pdf'
-      };
-
-      // Open PDF in new tab when clicking "View PDF"
-      document.querySelectorAll('.pdf-trigger').forEach(trigger => {
-        trigger.addEventListener('click', (e) => {
-          e.preventDefault();
-          const pdfName = trigger.dataset.pdf;
-          const pdfPath = pdfData[pdfName];
-          
-          if (pdfPath) {
-            window.open(pdfPath, '_blank');
-          } else {
-            console.warn(`PDF "${pdfName}" not found in pdfData`);
-          }
-        });
-      });
     </script>
 
     
