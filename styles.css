@@ -39,16 +39,9 @@ html {
 }
 
 
-html {
-  scroll-behavior: smooth;
-}
-
-
 .container {
-
 width: 100%;
 height: 100vh;
-
 overflow-y:scroll;
 scroll-snap-type: y mandatory;
 }
@@ -60,4 +53,591 @@ scroll-snap-type: y mandatory;
   align-items:center;
   justify-content: center;
   gap:50px;
+}
+
+/* The starting state */
+.timeline-item {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s ease-out;
+}
+
+/* The state when the item is visible on screen */
+.timeline-item.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Staggering based on the index */
+.timeline-item:nth-child(1) { transition-delay: 0.1s; }
+.timeline-item:nth-child(2) { transition-delay: 0.3s; }
+.timeline-item:nth-child(3) { transition-delay: 0.5s; }
+
+
+/* ============================================
+   NEW CARD STACK ANIMATION STYLES
+   ============================================ */
+
+/* Transition duration variable */
+:root {
+  --t: .8s;
+}
+
+/* Register custom properties so they can be transitioned */
+@property --p {
+  syntax: '<number>';
+  initial-value: 0;
+  inherits: true;
+}
+
+@property --v {
+  syntax: '<number>';
+  initial-value: 0;
+  inherits: true;
+}
+
+/* Card stack section */
+.card-stack {
+  /* set previous top item index to current top index */
+  --p: var(--k);
+  /* abs of difference between current & previous top item indices */
+  --abs-p: abs(var(--k) - var(--p));
+  /* animation from one end to another? 0 if no, 1 if yes */
+  --end: clamp(0, var(--abs-p) - 1, 1);
+  /* direction: -1 backwards, 1 forwards, 0 no animation */
+  --dir: calc((1 - 2*var(--end))*sign(var(--k) - var(--p)));
+  /* forward direction flag: 0 backwards, 1 forwards */
+  --fwd: calc(.5*(1 + var(--dir)));
+  /* animated value of top item index */
+  --v: var(--k);
+  /* absolute value of difference between animated & previous top index */
+  --abs-v: abs(var(--v) - var(--p));
+  /* animation progress as a decimal value */
+  --prg: calc(var(--abs-v)/(1 - var(--end) + var(--end)*(var(--n) - 1)));
+  
+  display: grid;
+  grid-gap: .5em 4em;
+  grid-template: 
+    repeat(2, max-content) max-content 1fr max-content/ 
+    max-content 1fr;
+  place-self: center;
+  color: #1e293b;
+  font: 1em 'Poppins', sans-serif;
+  counter-reset: k calc(1 + var(--k)) n var(--n);
+  transition: --p 0s var(--t), --v var(--t);
+  padding: 2rem;
+  min-height: 400px;
+}
+
+/* Counter display */
+.card-stack::before {
+  grid-area: 1/ 2;
+  width: 3ch;
+  text-align: right;
+  content: counter(k) '/' counter(n);
+  color: rgba(30, 41, 59, 0.6);
+  font-weight: 600;
+}
+
+
+@supports not (scale: Abs(-2)) {
+  .card-stack {
+    --abs-p: max(var(--k) - var(--p), var(--p) - var(--k));
+    --abs-v: max(var(--v) - var(--p), var(--p) - var(--v));
+  }
+}
+
+@supports not (scale: Sign(-2)) {
+  .card-stack {
+    --dir: clamp(-1, (var(--k) - var(--p))*100000, 1);
+  }
+}
+
+
+.card-stack .stack-card {
+  
+  --abs-top: abs(var(--k) - var(--i));
+
+  --not-top: min(1, var(--abs-top));
+ 
+  --top: calc(1 - var(--not-top));
+ 
+  --val-mov: ((1 - var(--fwd))*var(--p) + var(--fwd)*var(--k) - var(--i));
+  --abs-mov: abs(var(--val-mov));
+ 
+  --not-mov: min(1, var(--abs-mov));
+ 
+  --mov: calc(1 - var(--not-mov));
+  
+  grid-area: 1/ 1/ -1/ -1;
+  display: grid;
+  grid-template: subgrid/ subgrid;
+  z-index: mod(calc(var(--n) - 1 + var(--i) - var(--k)), var(--n));
+  transition: z-index var(--t) cubic-bezier(1, -.9, 0, 1.9);
+}
+
+
+@supports not (scale: Abs(-2)) {
+  .card-stack .stack-card {
+    --abs-top: max(var(--k) - var(--i), var(--i) - var(--k));
+    --abs-mov: max(var(--val-mov), -1*var(--val-mov));
+  }
+}
+
+
+.card-stack .stack-card h2 {
+  grid-area: 2/ 2;
+  translate: 0 calc(var(--not-top)*1lh);
+  opacity: var(--top);
+  transition: calc(0.5 * var(--t)) calc(var(--top) * 0.5 * var(--t));
+  transition-property: translate, opacity;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin: 0;
+  color: #0f172a;
+}
+
+.card-stack .stack-card em {
+  grid-area: 3/ 2;
+  translate: 0 calc(var(--not-top)*1lh);
+  opacity: var(--top);
+  transition: calc(0.5 * var(--t)) calc(var(--top) * 0.5 * var(--t));
+  transition-property: translate, opacity;
+  font-style: normal;
+  color: rgba(30, 41, 59, 0.6);
+  font-size: 1rem;
+  max-width: 400px;
+  line-height: 1.5;
+}
+
+.card-stack .stack-card .card-links {
+  grid-area: 4/ 2;
+  display: flex;
+  gap: 1.5rem;
+  translate: 0 calc(var(--not-top)*1lh);
+  opacity: var(--top);
+  transition: calc(0.5 * var(--t)) calc(var(--top) * 0.5 * var(--t));
+  transition-property: translate, opacity;
+  margin-top: 0.5rem;
+}
+
+.card-stack .stack-card .card-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  color: #4f46e5;
+  text-decoration: none;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: color 0.2s ease;
+}
+
+.card-stack .stack-card .card-links a:hover {
+  color: #3730a3;
+  text-decoration: underline;
+}
+
+
+.card-stack .stack-card img {
+
+  --sin: sin(var(--prg)*.5turn);
+  
+  grid-area: 1/ 1/ -1;
+  border: solid 3px rgba(99, 102, 241, 0.3);
+  height: 14em;
+  aspect-ratio: 1;
+  object-fit: cover;
+  border-radius: .75em;
+  
+  translate: calc(-150%*var(--mov)*sqrt(var(--sin)));
+ 
+  rotate: calc((1 - var(--sin))*var(--a));
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+}
+
+
+.card-stack .stack-buttons {
+			display: flex;
+  gap: 2em;
+  grid-area: 5/ 2;
+  
+  z-index: calc((1 - min(1, var(--abs-p)))*var(--n));
+  margin-top: 1rem;
+}
+
+
+.card-stack .stack-buttons button {
+  --sgn: -1;
+  --prc: calc(var(--hov, 0)*100%);
+  --c: color-mix(in hsl, #6366f1 var(--prc), #64748b);
+  
+		display: grid;
+  border: none;
+  width: 3rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: rgba(99, 102, 241, 0.15);
+  color: color-mix(in hsl, #6366f1 var(--prc), currentcolor);
+  font: 900 1.5rem/ 1.5 sans-serif;
+  cursor: pointer;
+  transition: .3s ease-out;
+  transition-property: background-color, color, transform;
+}
+
+.card-stack .stack-buttons button:hover {
+  --hov: 1;
+  background: rgba(99, 102, 241, 0.25);
+  transform: scale(1.1);
+}
+
+
+.card-stack .stack-buttons button::before {
+  place-self: center;
+  border: solid 2px;
+  border-width: 2px 2px 0 0;
+  width: 35%;
+  aspect-ratio: 1;
+  translate: calc(var(--sgn)*-15%);
+  rotate: 45deg;
+  scale: var(--sgn);
+  content: '';
+}
+
+.card-stack .stack-buttons button[data-inc='1'] {
+  --sgn: 1;
+}
+
+
+@layer base {
+	* {
+		box-sizing: border-box;
+	}
+	:root {
+		color-scheme: light dark;
+		--bg-dark: rgb(24, 24, 27);
+		--bg-light: rgb(229, 229, 229);
+		--txt-light: rgb(10, 10, 10);
+		--txt-dark: rgb(245, 245, 245);
+	}
+}
+
+@layer utilities {
+	.sr-only {
+			position: absolute;
+			width: 1px;
+			height: 1px;
+			padding: 0;
+			margin: -1px;
+			overflow: hidden;
+			clip: rect(0, 0, 0, 0);
+			white-space: nowrap;
+			border-width: 0;
+	}
+}
+
+
+.slideshow-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.slideshow-modal.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+}
+
+.slideshow-content {
+  position: relative;
+  max-width: 900px;
+  width: 90%;
+  max-height: 90vh;
+}
+
+
+.slideshow-close {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2.5rem;
+  cursor: pointer;
+  transition: color 0.2s, transform 0.2s;
+  z-index: 10;
+}
+
+.slideshow-close:hover {
+  color: #a5b4fc;
+  transform: scale(1.1);
+}
+
+
+.slideshow-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 0.75rem;
+  background: #1e1e1e;
+}
+
+.slide {
+  display: none;
+  width: 100%;
+  animation: fadeIn 0.5s ease;
+}
+
+.slide.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.98); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.slide img {
+  width: 100%;
+  max-height: 70vh;
+  object-fit: contain;
+  display: block;
+}
+
+.slide-caption {
+  padding: 1rem 1.5rem;
+  color: #e2e8f0;
+  font-size: 1rem;
+  text-align: center;
+  background: #1e1e1e;
+  margin: 0;
+}
+
+/* Navigation arrows */
+.slideshow-prev,
+.slideshow-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(99, 102, 241, 0.3);
+  border: none;
+  color: white;
+  font-size: 1.5rem;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slideshow-prev {
+  left: -4rem;
+}
+
+.slideshow-next {
+  right: -4rem;
+}
+
+.slideshow-prev:hover,
+.slideshow-next:hover {
+  background: rgba(99, 102, 241, 0.6);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.slideshow-counter {
+  text-align: center;
+  padding: 1rem;
+  color: #94a3b8;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .slideshow-prev {
+    left: 0.5rem;
+  }
+  
+  .slideshow-next {
+    right: 0.5rem;
+  }
+  
+  .slideshow-prev,
+  .slideshow-next {
+    width: 2.5rem;
+    height: 2.5rem;
+    font-size: 1.2rem;
+    background: rgba(99, 102, 241, 0.5);
+  }
+}
+
+
+.pdf-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.92);
+  z-index: 1000;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.pdf-modal.active {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+}
+
+.pdf-content {
+  position: relative;
+  width: 90%;
+  max-width: 1000px;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  background: #1a1a2e;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
+}
+
+.pdf-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  background: linear-gradient(135deg, #16213e 0%, #1a1a2e 100%);
+  border-bottom: 1px solid rgba(99, 102, 241, 0.2);
+}
+
+.pdf-title {
+  color: #e2e8f0;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.pdf-title i {
+  color: #f87171;
+}
+
+.pdf-actions {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.pdf-action-btn {
+  background: rgba(99, 102, 241, 0.2);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  color: #a5b4fc;
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  text-decoration: none;
+}
+
+.pdf-action-btn:hover {
+  background: rgba(99, 102, 241, 0.4);
+  color: #fff;
+  transform: translateY(-1px);
+}
+
+.pdf-close {
+  background: rgba(239, 68, 68, 0.2);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  color: #fca5a5;
+}
+
+.pdf-close:hover {
+  background: rgba(239, 68, 68, 0.4);
+  color: #fff;
+}
+
+.pdf-container {
+  flex: 1;
+  position: relative;
+  background: #0f0f1a;
+}
+
+.pdf-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.pdf-loading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #a5b4fc;
+  font-size: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.pdf-loading i {
+  font-size: 2.5rem;
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.1); }
+}
+
+/* Responsive adjustments for PDF viewer */
+@media (max-width: 768px) {
+  .pdf-content {
+    width: 95%;
+    height: 85vh;
+    border-radius: 0.75rem;
+  }
+  
+  .pdf-header {
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    padding: 0.75rem 1rem;
+  }
+  
+  .pdf-title {
+    font-size: 0.95rem;
+    width: 100%;
+  }
+  
+  .pdf-actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+  
+  .pdf-action-btn {
+    padding: 0.4rem 0.75rem;
+    font-size: 0.8rem;
+  }
 }

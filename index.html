@@ -7,35 +7,34 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=VT323&display=swap" rel="stylesheet" />
-    <style>
-        html {
-            scroll-behavior: smooth;
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Poppins:wght@400;600;700&family=VT323&display=swap" rel="stylesheet" />
+  
+   
     <script type="module">
       import { animate } from 'https://cdn.jsdelivr.net/npm/animejs/+esm';
     </script>
-    <title>Welcome</title>
+    <title>Welcome!</title>
+
+
 </head>
+
+
 
 <body class="bg-zinc-200 container">
 
     <!-- Navbar -->
     <div class="flex items-center px-3 md:px-6 py-4 bg-slate-100 shadow-md fixed w-full top-0 z-10">
-        <!-- Left side: Navigation links -->
         <div class="flex space-x-1 md:space-x-6 font-mono">
             <a class="px-4" href="#home">Home</a>
             <a class="px-4" href="#about">About</a>
             <a class="px-4" href="#projects">Projects</a>
         </div>
 
-        <!-- Spacer pushes icons to right -->
         <div class="ml-auto flex space-x-3 md:space-x-6 lg:space-x-8 text-l md:text-xl px-4 md:px-8">
-            <a href="https://www.linkedin.com" target="_blank" class="text-blue-700 hover:text-blue-900">
+            <a href="www.linkedin.com/in/joannaigutierrez" target="_blank" class="text-blue-700 hover:text-blue-900">
                 <i class="fa-brands fa-linkedin"></i>
             </a>
 
@@ -50,130 +49,392 @@
     </div>
 
     <!-- Home Section -->
-    <section id="home" class="h-screen bg-gradient-to-r flex flex-col items-center justify-center text-white text-3xl text-xs md:text-base">
-        <h1 class="font-mono tracking-wide text-6xl font-bold bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text animate__animated animate__zoomIn animate__slow">
+    <section id="home" class="h-screen bg-gradient-to-r text-white text-xs md:text-base">
+        
+      <div  dir = "ltr" class = "flex mt-55 justify-start grid grid-cols-2 ms-32">
+
+        <div class = "items-center flex-col">
+        <h1 class="font-mono pt-48 tracking-wide text-5xl font-bold bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 inline-block text-transparent bg-clip-text animate__animated animate__zoomIn animate__slow">
             Hello, I'm Joanna!
         </h1>
+        <p class="text-3xl pt-6 animate__animated animate__zoomIn animate__slow"> 👩🏻‍💻 🤠 🤖 🧶 </p>
+
+        <p class="text-lg text-gray-700 mt-12">
+                I'm a <span class = "text-green-700">computer science </span> student in my 3rd year at the <br> <span class="bg-gradient-to-r from-amber-700 via-orange-600 to-amber-400 inline-block text-transparent bg-clip-text ">University of Texas Rio Grande Valley.</span>
+        </p>
+
+        <p class = "text-base mt-8 text-gray-700">
+          Some of my interests include machine learning, web development, and robotics!
+        </div>
+
+        <div dir = "ltr" class = "flex pt-32">
+         <div class="w-80 ms-20 h-80  bg-blue-300 rotate-[8.08deg] rounded-3xl shadow-[0px_10px_80px_0px_rgba(0,0,0,0.25)] overflow-hidden bg-[url('./img/me.jpg')] hover:bg-[url('./img/mountain.jpg')] hover:rotate-[5.08deg] bg-cover transition-all duration-300"></div>
+        </div>
+
         <br>
-        <p class="text-3xl"> 👩🏻‍💻 🤠 🤖 🧶 </p>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="min-h-screen bg-gray-200 flex flex-col items-center justify-center text-center">
+    <section id="about" class="min-h-screen bg-gray-200 flex flex-col items-center  text-center">
         <div class="max-w-lg sm:w-1/2">
-            <h2 class="text-4xl sm: text-2xl font-bold mb-4">About Me</h2>
-            <p class="text-lg text-gray-700">
-                I'm a <span class = "text-green-700">computer science </span> student in my 3rd year at the <br> <span class="bg-gradient-to-r from-amber-700 via-orange-600 to-amber-400 inline-block text-transparent bg-clip-text ">University of Texas Rio Grande Valley.</span>
-            </p>
-            <p class = "text-base">
-              <br> Some of my interests include machine learning, web development, and robotics!
-                This summer I worked under the <a class = "text-sky-600 underline decoration-sky-600" target = "_blank" href = "https://osusharelab.com/"> OSU Share Lab </a> as an undergraduate researcher. I worked on designing and implementing robotic systems to promote the physical and mental wellbeing of the elder population in Skilled Nursing Facilities (SNF) with <span class = "text-sky-600 font-bold decoration-sky-600">SAMI</span> the robot.
-            </p>
+            <h2 class="text-4xl sm: text-2xl font-bold mb-4 mt-20">About Me</h2>
+            <div class="news-container">
+
+        <div class="timeline-item">
+            <div class="dot"></div>
+            <span class="date">9/2025 - Present</span>
+            <div class="content text-xl tracking-wide">
+                Discrete Mathematics Teaching Assistant</a>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="dot"></div>
+            <span class="date">10/2025 - Present</span>
+            <div class="content text-xl tracking-wide">
+              Undergraduate Research Assistant: <a target="_blank" href="https://www.utrgv.edu/cecs/departments/csci/research/index.htm" ><span class ="underline hover:text-blue-600">MARS Lab</span></a>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="dot"></div>
+            <span class="date">05/2025 - 08/2025</span>
+            <div class="content text-xl tracking-wide">
+                REU: Oregon State University <a target="_blank" href="https://engineering.oregonstate.edu/CoRIS/reu-robots-real-world"> <span class ="underline hover:text-blue-600"> Robots in the Real World</span></a>
+            </div>
+        </div>
+
+        <div class="timeline-item">
+            <div class="dot"></div>
+            <span class="date">04/2024 - 12/2024</span>
+            <div class="content text-xl tracking-wide">
+               Calculus Peer Led Team Leader for the <a target="_blank" href= "https://www.utrgv.edu/tutoring/pcl-programs/peer-led-team-learning/index.htm"><span class ="underline hover:text-blue-600">UTRGV Learning Center</span></a>
+            </div>
+            </div>
+        </div>
+
+    </div>
         </div>
     </section>
 
     <!-- Projects Section -->
-<section id="projects" class="min-h-screen bg-white flex items-center justify-center text-center px-6">
-  <div class="max-w-screen-lg w-full">
-    <h2 class="text-4xl font-bold mb-4">My Projects</h2>
-    <p class="text-lg text-gray-700 mb-8">Here are some of the projects I've worked on:</p>
-
-    <!-- Grid container for project cards -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-      
-      <!-- Project card -->
-      
-      <div class="bg-white rounded shadow-xl aspect-square flex flex-col hover:shadow-blue-500/50 hover:shadow-2xl transition-shadow duration-300">
-        <img class="w-full h-1/2 object-cover" src="./img/speechtranslate.png" alt="Sunset in the mountains">
-        <div class="px-6 py-4 flex-grow flex flex-col justify-between">
-          <a target = "_blank" href = "https://isabellawtu09.github.io/transcribe-translate/"><div>
-            <h3 class="font-bold text-2xl mb-2 hover:text-blue-500 hover:underline">Speech Scribe</h3>
-            <span class="bg-blue-100 text-blue-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-sm dark:bg-blue-900 dark:text-blue-300">Web development</span>
-            <span class="bg-red-100 text-red-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-sm dark:bg-red-900 dark:text-red-300">Machine Learning</span>
-            <span class="bg-yellow-100 text-yellow-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-sm dark:bg-yellow-900 dark:text-yellow-300">Natural Language Processing</span>
-            <p class="pt-3 text-gray-700 text-base">
-              Record live audio to transcribe and translate. This website was created through 
-              Vite + React using the <span class = "font-bold underline"><a  target = "_blank" class = "text-sky-600 underline decoration-sky-600" href="https://huggingface.co/" >hugging face</a></span> xenova transformers.
-            </p>
-          </div>
-        </div>
+<section id="projects" class="min-h-screen bg-white flex flex-col items-center justify-center px-6">
+  <h2 class="text-4xl font-bold mb-10 mt-20">Projects</h2>
+  
+  <section class="card-stack" style="--n: 6; --k: 0">
+    <article class="stack-card" style="--i: 0; --a: 5deg">
+      <h2>Knotions</h2>
+      <em>I created this page as a way to brainstorm and hopefully create something fun and cuddly!</em>
+      <img src="./img/knotions.png" alt="Knotions crochet pattern website">
+      <div class="card-links">
+        <a href="https://github.com/isabellawtu09/knotions-crochet" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+        <a href="https://isabellawtu09.github.io/knotions-crochet/" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo</a>
       </div>
+    </article>
 
-      <!-- Repeat card structure for more projects -->
-      <div class="bg-white rounded shadow-xl aspect-square flex flex-col hover:shadow-blue-500/50 hover:shadow-2xl transition-shadow duration-300">
-        <img class="w-full h-1/2 object-cover" src="./img/hello-space.jpg" alt="Sunset in the mountains">
-        <div class="px-6 py-4 flex-grow flex flex-col justify-between">
-          <div>
-            <h3 class="font-bold text-2xl mb-2">In-Space Welding</h3>
-            <span class="bg-blue-100 text-blue-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-sm dark:bg-blue-900 dark:text-blue-300">SARE</span>
-            <span class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-sm dark:bg-yellow-900 dark:text-yellow-300">Telemetry</span>
-             <span class="bg-pink-100 text-pink-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-sm dark:bg-yellow-900 dark:text-yellow-300">Robotics</span>
-            <p class="text-gray-700 text-base">
-              As part of my role in the SARE telemetry team, I am currently working on developing 
-              the necessary software to control and monitor the welding process in space to close 
-              a technical gap as a NASA Artemis Student Challenge.
-              
-            </p>
-          </div>
-        </div>
+    <article class="stack-card" style="--i: 1; --a: -8deg">
+      <h2>Trivia Task</h2>
+      <em>During my time at OSU, I ran user studies and tested trivia as a possible cognitive and social activity for older adults in an SNF setting with an emphasis on motivating factors.</em>
+      <img src="./img/ovh-photo.jpg" alt="Trivia Task robot interaction">
+      <div class="card-links">
+        <a href="#" class="pdf-trigger" data-pdf="trivia-task"><i class="fa-solid fa-file-pdf"></i> View PDF</a>
       </div>
+    </article>
 
-      <div class="bg-white rounded shadow-xl aspect-square flex flex-col hover:shadow-blue-500/50 hover:shadow-2xl transition-shadow duration-300">
-        <img class="w-full h-1/2 object-cover" src="./img/clap-sami-2.jpg" alt="Sunset in the mountains">
-        <div class="px-6 py-4 flex-grow flex flex-col justify-between">
-          <div>
-            <h3 class="font-bold text-xl mb-2">Robot Hosted Trivia</h3>
-            <span class="bg-purple-100 text-purple-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-sm dark:bg-blue-900 dark:text-blue-300">Research</span>
-            <span class="bg-yellow-100 text-yellow-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-sm dark:bg-yellow-900 dark:text-yellow-300">Human-Robot Interaction</span>
-            <p class="text-gray-700 text-base">
-              During my time at OSU, I ran user studies and tested trivia as a possible cognitive
-              activity for older adults in an SNF setting with an emphasis on motivating factors.
-              Learn more about my time at OSU <a class = "text-sky-600 underline decoration-sky-600" target = "_blank" href = "./Resources/Robot Facilitated Trivia - Final deliverable (3) (1).pdf"> here.</a>
-
-            </p>
-          </div>
-        </div>
+    <article class="stack-card" style="--i: 2; --a: 3deg">
+      <h2>Speech Scribe</h2>
+      <em>An AI-powered speech-to-text application that transcribes and translates spoken words in real-time.</em>
+      <img src="./img/speech.png" alt="Speech Scribe application">
+      <div class="card-links">
+        <a href="https://github.com/isabellawtu09/transcribe-translate" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+        <a href="https://isabellawtu09.github.io/transcribe-translate/" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo</a>
       </div>
-      <div class="bg-white rounded shadow-xl aspect-square flex flex-col hover:shadow-blue-500/50 hover:shadow-2xl transition-shadow duration-300">
-        <img class="w-full h-1/2 object-cover" src="./img/image.png" alt="Sunset in the mountains">
-        <div class="px-6 py-4 flex-grow flex flex-col justify-between">
-          <div>
-             <a target = "_blank" href = "https://socialmedia-insights.streamlit.app/">
-            <h3 class="font-bold text-xl mb-2 hover:text-blue-500 hover:underline">Social media usage and emotion analysis</h3>
-            <span class="bg-purple-100 text-purple-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-sm dark:bg-blue-900 dark:text-blue-300">Research</span>
-            <span class="bg-yellow-100 text-yellow-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-sm dark:bg-purple-900 dark:text-purple-300">Data Science</span>
-            <p class="text-gray-700 text-base">
-              As an extension of my existing data science project from this Spring 2025 
-              semester, I created a simple dashboard with some of the analysis done in regards to social media use 
-              and the emotions associated with factors such as engagement, usage time, etc.
-          </div>
-        </div>
+    </article>
+
+    <article class="stack-card" style="--i: 3; --a: -6deg">
+      <h2>Burnout Bots</h2>
+      <em>2025 HackR research hackathon project winner!</em>
+      <img src="./img/hackr.png" alt="Burnout Bots project">
+      <div class="card-links">
+        <a href="#" class="pdf-trigger" data-pdf="burnout-bots"><i class="fa-solid fa-file-pdf"></i> View PDF</a>
       </div>
+    </article>
 
-
-      <div class="bg-white rounded shadow-xl aspect-square flex flex-col hover:shadow-blue-500/50 hover:shadow-2xl transition-shadow duration-300">
-        <img class="w-full sm:h-1/2 object-cover" src="./img/catknot.png" alt="Sunset in the mountains">
-        <div class="px-6 py-4 flex-grow flex flex-col justify-between">
-          <div>
-             <a target = "_blank" href = "https://isabellawtu09.github.io/knotions-crochet/">
-            <h3 class="font-bold text-xl mb-2 hover:text-blue-500 hover:underline">Knotions</h3>
-            <span class="bg-purple-100 text-purple-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-sm dark:bg-blue-900 dark:text-pink-300">Hobbies</span>
-            <span class="bg-yellow-100 text-yellow-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded-sm dark:bg-purple-900 dark:tex-gray-300">Cat</span>
-            <p class="text-gray-700 text-base">
-              I created this page as a way to brainstorm
-              and hopefully create something fun and cuddly!
-        </div>
+    <article class="stack-card" style="--i: 4; --a: 7deg">
+      <h2> AquaMundi </h2>
+      <em>2023 NASA Space Apps Challenge! My team secured 2nd place in the local competition 
+        with our project AquaMundi. The application allows users to identify endangered species 
+        by locating them on a map and suggesting ways to conserve them. </em>
+      <img src="./img/aquamundi/cover.png" alt="Aquamundi App Icon">
+      <div class="card-links">
+ 
+        <a href="#" class="slides-trigger" data-slideshow="AquaMundi-slides"><i class="fa-solid fa-images"></i> View Slides</a>
+        <a href="#" class="pdf-trigger" data-pdf="AquaMundi-cert"><i class="fa-solid fa-file-pdf"></i> View Certificate</a>
       </div>
+    </article>
 
+    <article class="stack-card" style="--i: 5; --a: -4deg">
+      <h2>Exploring the effects of social media usage</h2>
+      <em> As an extension of my existing data science project from the Spring 2025 semester, I created a simple dashboard 
+        with some of the analysis done in regards to social media use and the emotions associated with factors such as engagement, 
+        usage time, etc.</em>
 
+      <img src="./img/data_project/cover.png" alt="Dashboard visualization">
+      <div class="card-links">
+        <a href="https://github.com/isabellawtu09/social-mediadashboard/tree/main" target="_blank"><i class="fa-brands fa-github"></i> GitHub</a>
+        <a href="https://socialmedia-insights.streamlit.app/" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo</a>
+        <a href="#" class="slides-trigger" data-slideshow="data-slides"><i class="fa-solid fa-images"></i> View Slides</a>
+      </div>
+    </article>
+
+    <div class="stack-buttons">
+      <button aria-label="previous" data-inc="-1"></button>
+      <button aria-label="next" data-inc="1"></button>
     </div>
-  </div>
+  </section>
 </section>
 
+<!-- Slideshow Modal  -->
+<div id="slideshow-modal" class="slideshow-modal">
+  <div class="slideshow-content">
+    <button class="slideshow-close" aria-label="Close slideshow">&times;</button>
+    
+    <div class="slideshow-container">
+    </div>
+    
+    <button class="slideshow-prev" aria-label="Previous slide">&#10094;</button>
+    <button class="slideshow-next" aria-label="Next slide">&#10095;</button>
+    
+    <div class="slideshow-counter">
+      <span id="slide-current">1</span> / <span id="slide-total">3</span>
+    </div>
+  </div>
+</div>
+
+<!-- PDF Viewer Modal -->
+<div id="pdf-modal" class="pdf-modal">
+  <div class="pdf-content">
+    <div class="pdf-header">
+      <h3 class="pdf-title">
+        <i class="fa-solid fa-file-pdf"></i>
+        <span id="pdf-title-text">Document</span>
+      </h3>
+      <div class="pdf-actions">
+        <a href="#" id="pdf-external" class="pdf-action-btn" target="_blank">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> Open in Tab
+        </a>
+        <button class="pdf-action-btn pdf-close">
+          <i class="fa-solid fa-xmark"></i> Close
+        </button>
+      </div>
+    </div>
+    <div class="pdf-container">
+      <div class="pdf-loading">
+      </div>
+      <iframe id="pdf-frame" title="PDF Viewer"></iframe>
+    </div>
+  </div>
+</div>
 
    
     
-    <script src="script.js"></script>
+    <script src="./script.js"></script>
+    <script>
+      const S = document.querySelector('.card-stack').style;
+      const N = +S.getPropertyValue('--n'); // number of items
+      let k = +S.getPropertyValue('--k'); // index of current top item
+
+      addEventListener('click', e => {
+        let v = +e.target.dataset.inc; 
+        if(v) S.setProperty('--k', k = ((k + v + N) % N));
+      });
+
+      const slideshowData = {
+        'data-slides': [
+          { image: './img/data_project/1.jpg'},
+          { image: './img/data_project/2.jpg' },
+          { image: './img/data_project/3.jpg'},
+          { image: './img/data_project/4.png'},
+          { image: './img/data_project/5.jpg' },
+          { image: './img/data_project/6.jpg'},
+          { image: './img/data_project/7.jpg'},
+          { image: './img/data_project/8.jpg' },
+          { image: './img/data_project/9.jpg'},
+          { image: './img/data_project/10.jpg'},
+          { image: './img/data_project/11.jpg'},
+          { image: './img/data_project/12.jpg' },
+          { image: './img/data_project/13.jpg' },
+        ],
+        'AquaMundi-slides': [
+          { image: './img/aquamundi/Slide1.JPG' },
+          { image: './img/aquamundi/Slide2.JPG' },
+          { image: './img/aquamundi/Slide3.JPG'},
+          { image: './img/aquamundi/Slide4.JPG'},
+          { image: './img/aquamundi/Slide5.JPG' },
+          { image: './img/aquamundi/Slide6.JPG'},
+          { image: './img/aquamundi/Slide7.JPG'},
+        ],
+        'AquaMundi-cert': [
+          { image: './img/aquamundi/certificate.pdf' },
+        ],
+
+      };
+
+      // Slideshow Modal System
+      const modal = document.getElementById('slideshow-modal');
+      const slidesContainer = document.querySelector('.slideshow-container');
+      let currentSlide = 0;
+      let currentSlides = []; 
+      function loadSlideshow(slideshowName) {
+        const slideData = slideshowData[slideshowName];
+        
+        if (!slideData) {
+          console.warn(`Slideshow "${slideshowName}" not found in slideshowData`);
+          return false;
+        }
+
+        // Clear existing slides
+        slidesContainer.innerHTML = '';
+
+        slideData.forEach((slide, index) => {
+          const slideDiv = document.createElement('div');
+          slideDiv.className = 'slide' + (index === 0 ? ' active' : '');
+          slideDiv.innerHTML = `
+            <img src="${slide.image}" alt="${slide.caption}">
+          `;
+          slidesContainer.appendChild(slideDiv);
+        });
+
+        currentSlides = slidesContainer.querySelectorAll('.slide');
+        return true;
+      }
+
+      document.querySelectorAll('.slides-trigger').forEach(trigger => {
+        trigger.addEventListener('click', (e) => {
+          e.preventDefault();
+          
+          
+          const slideshowName = trigger.dataset.slideshow;
+          
+ 
+          if (loadSlideshow(slideshowName)) {
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            showSlide(0);
+          }
+        });
+      });
+
+      document.querySelector('.slideshow-close').addEventListener('click', closeModal);
+      modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeModal();
+      });
+
+      function closeModal() {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+
+      document.querySelector('.slideshow-prev').addEventListener('click', () => {
+        showSlide(currentSlide - 1);
+      });
+
+      document.querySelector('.slideshow-next').addEventListener('click', () => {
+        showSlide(currentSlide + 1);
+      });
+
+      function showSlide(index) {
+        const total = currentSlides.length;
+        if (total === 0) return;
+        
+        // Wrap around
+        if (index < 0) index = total - 1;
+        if (index >= total) index = 0;
+        
+        currentSlide = index;
+        
+        currentSlides.forEach(slide => slide.classList.remove('active'));
+        currentSlides[currentSlide].classList.add('active');
+        
+       
+        document.getElementById('slide-current').textContent = currentSlide + 1;
+        document.getElementById('slide-total').textContent = total;
+      }
+
+      // Keyboard navigation
+      document.addEventListener('keydown', (e) => {
+        if (!modal.classList.contains('active')) return;
+        
+        if (e.key === 'Escape') closeModal();
+        if (e.key === 'ArrowLeft') showSlide(currentSlide - 1);
+        if (e.key === 'ArrowRight') showSlide(currentSlide + 1);
+      });
+
+
+      const pdfData = {
+        'burnout-bots': {
+          title: 'Burnout Bots - Project Documentation',
+          path: './Resources/hackr2025.pdf'
+        },
+        'trivia-task': {
+          title: 'Robot Facilitated Trivia - Final Deliverable',
+          path: './Resources/robot_trivia.pdf'
+        },
+        'AquaMundi-cert': {
+          title: 'Certificate of Completion',
+          path: './Resources/certificate.pdf'
+        }
+      };
+
+     
+      const pdfModal = document.getElementById('pdf-modal');
+      const pdfFrame = document.getElementById('pdf-frame');
+      const pdfTitleText = document.getElementById('pdf-title-text');
+      const pdfExternal = document.getElementById('pdf-external');
+
+      document.querySelectorAll('.pdf-trigger').forEach(trigger => {
+        trigger.addEventListener('click', (e) => {
+          e.preventDefault();
+          
+          const pdfName = trigger.dataset.pdf;
+          const pdf = pdfData[pdfName];
+          
+          if (!pdf) {
+            console.warn(`PDF "${pdfName}" not found in pdfData`);
+            return;
+          }
+
+          pdfTitleText.textContent = pdf.title;
+          
+          pdfExternal.href = pdf.path;
+          
+          pdfFrame.src = pdf.path;
+          
+       
+          pdfModal.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        });
+      });
+
+      function closePdfModal() {
+        pdfModal.classList.remove('active');
+        document.body.style.overflow = '';
+        pdfFrame.src = ''; 
+      }
+
+      document.querySelector('.pdf-close').addEventListener('click', closePdfModal);
+      pdfModal.addEventListener('click', (e) => {
+        if (e.target === pdfModal) closePdfModal();
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (!pdfModal.classList.contains('active')) return;
+        if (e.key === 'Escape') closePdfModal();
+      });
+    </script>
+
+    
 </body>
 
 </html>
